@@ -1,5 +1,4 @@
 export default function DateBuilder(d) {
-  console.log(`Isso é o d: ${d}`);
   let days = [
     "Sunday",
     "Monday",
