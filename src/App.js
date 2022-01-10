@@ -11,6 +11,11 @@ function App() {
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState("");
 
+  function descriptionUpperCase() {
+    const string = weather.weather[0].description;
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   const search = (event) => {
     if (event.key === "Enter") {
       fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
@@ -59,7 +64,7 @@ function App() {
             </div>
             <div className="weather-box">
               <div className="temp">{Math.round(weather.main.temp)}ºc</div>
-              <div className="weather">{weather.weather[0].main}</div>
+              <div className="weather">{descriptionUpperCase()}</div>
             </div>
           </div>
         ) : (
